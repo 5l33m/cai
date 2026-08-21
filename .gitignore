@@ -169,3 +169,6 @@ pentestperf
 venv*
 
 .claude
+
+# ai-red-team skill run artifacts (evidence/logs, not source)
+runs/
