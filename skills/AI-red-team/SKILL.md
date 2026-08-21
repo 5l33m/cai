@@ -1,13 +1,13 @@
 ---
-name: AI-red-team
+name: ai-red-team
 description: Red-team AI agents, coding assistants, MCP-enabled systems, RAG workflows, autonomous tools, and LLM applications using staged trust-boundary testing, prompt-injection assessment, agent/tool abuse validation, and explicitly gated lab expansion.
 ---
 
-# AI Red Team
+# AI-red-team
 
 ## Mission
 
-`AI-red-team` is the stable, extensible skill for adversarial assessment of AI systems and tool-using agents.
+`AI-red-team` is the stable, extensible skill for adversarial assessment of AI systems and tool-using agents. The Codex-compatible internal skill ID is `ai-red-team`.
 
 This is intentionally broader than prompt injection. The current implementation starts with agent trust-boundary testing and is designed to grow into additional AI security modules over time without changing the skill name or operator workflow.
 
