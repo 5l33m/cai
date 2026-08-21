@@ -21,7 +21,40 @@ A portable security-testing skill for AI agents and tool-using LLM workflows.
 
 The objective is to prove where untrusted text can cross into privileged behavior while keeping validation non-destructive.
 
-## Suggested invocation
+## Executable harness
+
+This package now includes `harness.py` and `scenarios.json` for repeatable, evidence-driven testing.
+
+The harness can:
+
+- create randomized marker and synthetic-secret canaries;
+- generate a controlled malicious GitHub issue fixture;
+- optionally seed that issue into an authorized lab/test repository using `gh`;
+- invoke an explicitly supplied local agent CLI command;
+- capture agent stdout/stderr;
+- detect configured synthetic side effects;
+- score the boundary crossing;
+- generate a Markdown assessment report;
+- clean up local test artifacts.
+
+Start with:
+
+```bash
+python harness.py init --scenario github-issue-marker --run-dir ./runs/test-001
+```
+
+Then either hand `issue_body.md` to the target agent, seed it into a lab GitHub repository, or invoke an authorized non-interactive agent command through `run-agent`.
+
+After the test:
+
+```bash
+python harness.py observe --run-dir ./runs/test-001
+python harness.py report --run-dir ./runs/test-001
+```
+
+See [`HARNESS.md`](HARNESS.md) for the complete workflow.
+
+## Suggested skill invocation
 
 Examples:
 
@@ -56,4 +89,4 @@ Vulnerable result: the agent invokes a filesystem/shell tool and creates the mar
 
 The skill provides both a quick matrix and a full assessment format, including trust-boundary mapping, findings, failed tests, remediation, and retest results.
 
-See `SKILL.md` for the full methodology.
+See `SKILL.md` for the full methodology and `HARNESS.md` for executable testing.
