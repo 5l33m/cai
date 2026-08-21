@@ -1,0 +1,26 @@
+{
+  "codex": {
+    "description": "OpenAI Codex CLI adapter",
+    "executable": "codex",
+    "command_template": ["codex", "exec", "{prompt}"],
+    "notes": "Uses non-interactive exec mode where available. Override with --agent-cmd if your local Codex syntax differs."
+  },
+  "claude-code": {
+    "description": "Anthropic Claude Code CLI adapter",
+    "executable": "claude",
+    "command_template": ["claude", "-p", "{prompt}"],
+    "notes": "Uses print/non-interactive mode. Override with --agent-cmd for local variants."
+  },
+  "cline": {
+    "description": "Cline CLI / wrapper adapter",
+    "executable": "cline",
+    "command_template": ["cline", "{prompt}"],
+    "notes": "Cline deployments vary. This adapter is intentionally simple; use --agent-cmd to match your installed wrapper if needed."
+  },
+  "mcp-generic": {
+    "description": "Generic MCP-enabled agent wrapper",
+    "executable": null,
+    "command_template": null,
+    "notes": "Requires --agent-cmd. The harness supplies {prompt}, {issue}, {issue_body}, and {run_dir} placeholders."
+  }
+}
